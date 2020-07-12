@@ -35,7 +35,7 @@ function GraphChart(){
     return (
       <div>
         <h2>Line Example</h2>
-        <Line data={data} height={'80%'} />
+        <Line data={data} height={'100%'} />
       </div>
     );
     }
