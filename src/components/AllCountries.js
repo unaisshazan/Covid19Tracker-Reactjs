@@ -8,13 +8,16 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 50
     },
     title: {
-        textAlign: 'left'
+        textAlign: 'left',
+        
     },
     table: {
         height: 450,
         overflowY: 'scroll',
-        display: 'block'
-    }
+        display: 'block',
+     
+    },
+   
 }));
 
 export default function AllCountries() {
@@ -41,6 +44,7 @@ export default function AllCountries() {
                         <th>Country Name</th>
                         <th>Total Cases</th>
                         <th>Active Cases</th>
+                        <th>Total Deaths</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,6 +59,9 @@ export default function AllCountries() {
                                 </td>
                                 <td>
                                     {globalData[ind].total_active_cases}
+                                </td>
+                                <td>
+                                    {globalData[ind].total_deaths}
                                 </td>
                             </tr>
                         )
