@@ -29,18 +29,7 @@ const data = {
 };
 
 function GraphChart(){
-    const [ setGlobalData] = useState([{}]);
-
-    useEffect(() => {
-        async function getData() {
-            const response = await fetch("https://api.thevirustracker.com/free-api?countryTotals=ALL");
-            let data = await response.json();
-
-            setGlobalData(Object.values(Object.values(data.countryitems)[0]));
-            console.log(Object.values(Object.values(data.countryitems)[0]))
-        }
-        getData();
-    }, [])
+    
 
 
     return (
