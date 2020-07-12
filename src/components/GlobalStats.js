@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GlobalStats() {
     const [globalData, setGlobalData] = useState({});
+    
 
     useEffect(() => {
         async function getData() {
