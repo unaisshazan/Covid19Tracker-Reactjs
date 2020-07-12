@@ -36,7 +36,7 @@ export default function InfoPanel() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-      {Object.keys(globalData).map((val,ind)=>{ // always give unique key for dynamic content
+      {Object.keys(globalData).map((key,ind)=>{ // always give unique key for dynamic content
           //if you want array of all day use .key and for each and map use as same to fecth all the data in to website view
 
         return(
@@ -44,7 +44,9 @@ export default function InfoPanel() {
             <Paper 
             className={classes.paper} 
             elevation={4}
-            >{val}</Paper>
+            ><h3>{key}</h3>
+            <h3>{globalData[key]}</h3>
+            </Paper>
           </Grid>
 
         )
