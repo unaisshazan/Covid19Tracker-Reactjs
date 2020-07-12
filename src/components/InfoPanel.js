@@ -42,9 +42,9 @@ export default function InfoPanel() {
         return(
             <Grid item xs={12} sm={4} key={ind}>
             <Paper 
-            className={classes.paper}  // becasue global["active casses"] thats why we extract all the  keys with global data
+            className={classes.paper}  // becasue global["active casses"] thats why we extract all the  keys with global data toUpperCase() will shift all the data to upper case
             elevation={4}
-            ><h3>{key.replace(/_/g,' ')}</h3>
+            ><h3>{key.replace(/_/g,' ').toUpperCase()}</h3>
             <h3>{globalData[key]}</h3>
             </Paper>
           </Grid>
