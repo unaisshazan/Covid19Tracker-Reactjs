@@ -29,7 +29,7 @@ const data = {
 };
 
 function GraphChart(){
-    const [globalData, setGlobalData] = useState([{}]);
+    const [ setGlobalData] = useState([{}]);
 
     useEffect(() => {
         async function getData() {
