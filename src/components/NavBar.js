@@ -1,4 +1,4 @@
-import {React,useEffect} from 'react';
+import {React,useEffect,useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
@@ -64,17 +64,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function NavBar() {
+    const classes = useStyles();
+    const [globalData, setGlobalData]= useState({});
     useEffect(() => {
      async function getdata(){
 
   const response = await fetch("https://api.thevirustracker.com/free-api?global=stats");
    let data = await response.json(); //converting all the data into json so u can use it in website
-   console.log(data);
+
+   delete data.results[0].source; // data me source wali link ko remove krdo because source link is not usable
+   setGlobalData(data.results[0]);
+   console.log(data.results[0]);
      }   
      getdata();
      
     }, [])
-  const classes = useStyles();
+
 
   return (
     <div className={classes.root}>
