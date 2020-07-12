@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  title: {
+
+    color:'rgb(0, 154, 255)',
+  },
+  list: {
+      color: 'rgb(27, 79, 114)',
+  }
 }));
 
 export default function InfoPanel() {
@@ -44,8 +51,8 @@ export default function InfoPanel() {
             <Paper 
             className={classes.paper}  // becasue global["active casses"] thats why we extract all the  keys with global data toUpperCase() will shift all the data to upper case
             elevation={4}
-            ><h3>{key.replace(/_/g,' ').toUpperCase()}</h3>
-            <h3>{globalData[key]}</h3>
+            ><h3 className={classes.title}>{key.replace(/_/g,' ').toUpperCase()}</h3>
+            <h3 className={classes.list}>{globalData[key]}</h3>
             </Paper>
           </Grid>
 
