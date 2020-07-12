@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FootNav() {
+export default function FootNav(screenConfig) {
   const classes = useStyles();
   const [value, setValue] = React.useState('recents');
 
