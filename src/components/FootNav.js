@@ -21,12 +21,17 @@ export default function FootNav(screenConfig) {
   const classes = useStyles();
   const [value, setValue] = React.useState('recents');
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+ 
 
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+    <BottomNavigation
+      value={screenConfig[0]}
+      onChange={(event, newValue) => {
+        screenConfig[1](newValue);
+      }}
+      showLabels
+      className={classes.root}
+    >
       <BottomNavigationAction label="Global Stats" value="recents" icon={<RestoreIcon />} />
       <BottomNavigationAction label="Country Stats" value="favorites" icon={<FavoriteIcon />} />
       <BottomNavigationAction label="Graphs" value="nearby" icon={<LocationOnIcon />} />
