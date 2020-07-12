@@ -21,7 +21,13 @@ export default function InfoPanel() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={4}>
-          <Paper className={classes.paper}>xs=12</Paper>
+          <Paper className={classes.paper}>Grid 1</Paper>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Paper className={classes.paper}>Grid 2</Paper>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Paper className={classes.paper}>Grid 3</Paper>
         </Grid>
         </Grid>
        
