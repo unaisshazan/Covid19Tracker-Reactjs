@@ -1,72 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { Line, Bar } from 'react-chartjs-2';
+import React, { useEffect, useState } from 'react';
+import {Line} from 'react-chartjs-2';
 
-import { fetchDailyData } from './index';
-
-import styles from './Chart.module.css';
-
-const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
-  const [dailyData, setDailyData] = useState({});
-
-  useEffect(() => {
-    const fetchMyAPI = async () => {
-      const initialDailyData = await fetchDailyData();
-
-      setDailyData(initialDailyData);
-    };
-
-    fetchMyAPI();
-  }, []);
-
-  const barChart = (
-    confirmed ? (
-      <Bar
-        data={{
-          labels: ['Infected', 'Recovered', 'Deaths'],
-          datasets: [
-            {
-              label: 'People',
-              backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(255, 0, 0, 0.5)'],
-              data: [confirmed.value, recovered.value, deaths.value],
-            },
-          ],
-        }}
-        options={{
-          legend: { display: false },
-          title: { display: true, text: `Current state in ${country}` },
-        }}
-      />
-    ) : null
-  );
-
-  const lineChart = (
-    dailyData[0] ? (
-      <Line
-        data={{
-          labels: dailyData.map(({ date }) => date),
-          datasets: [{
-            data: dailyData.map((data) => data.confirmed),
-            label: 'Infected',
-            borderColor: '#3333ff',
-            fill: true,
-          }, {
-            data: dailyData.map((data) => data.deaths),
-            label: 'Deaths',
-            borderColor: 'red',
-            backgroundColor: 'rgba(255, 0, 0, 0.5)',
-            fill: true,
-          },
-          ],
-        }}
-      />
-    ) : null
-  );
-
-  return (
-    <div className={styles.container}>
-      {country ? barChart : lineChart}
-    </div>
-  );
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      borderColor: 'rgba(75,192,192,1)',
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: 'rgba(75,192,192,1)',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+      pointHoverBorderColor: 'rgba(220,220,220,1)',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data: [65, 59, 80, 81, 56, 55, 40]
+    }
+  ]
 };
 
-export default Chart;
+function GraphChart(){
+    const [globalData, setGlobalData] = useState([{}]);
+
+    useEffect(() => {
+        async function getData() {
+            const response = await fetch("https://api.thevirustracker.com/free-api?countryTotals=ALL");
+            let data = await response.json();
+
+            setGlobalData(Object.values(Object.values(data.countryitems)[0]));
+            console.log(Object.values(Object.values(data.countryitems)[0]))
+        }
+        getData();
+    }, [])
+
+
+    return (
+      <div>
+        <h2>Line Example</h2>
+        <Line data={data} height={'80%'} />
+      </div>
+    );
+    }
+export default GraphChart;
