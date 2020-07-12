@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
@@ -67,9 +67,11 @@ export default function NavBar() {
     useEffect(() => {
      async function getdata(){
 
-  const response = await fetch("https://api.thevirustracker.com/free-api?global=stats")
-let data = response.json() //converting all the data into json so u can use it in website
+  const response = await fetch("https://api.thevirustracker.com/free-api?global=stats");
+   let data = await response.json(); //converting all the data into json so u can use it in website
+   console.log(data);
      }   
+     getdata();
      
     }, [])
   const classes = useStyles();
