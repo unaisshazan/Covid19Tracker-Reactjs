@@ -1,4 +1,4 @@
-import React ,{useEffect,useState} from 'react';
+import React  from 'react';
 import GlobalStats from './GlobalStats';
 import AllCountries from './AllCountries';
 import GraphChart from './Graph'
