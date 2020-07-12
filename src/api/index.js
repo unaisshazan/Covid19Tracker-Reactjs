@@ -1,37 +1,16 @@
-const url = "https://covid19.mathdro.id/api";
+import axios from "axios";
 
-export const covidData = async () => {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    const proData = {
-      confirmed: data.confirmed.value,
-      recovered: data.recovered.value,
-      deaths: data.deaths.value,
-      lastUpdate: data.lastUpdate,
-    };
-
-    return proData;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const covidCountryData = async () => {
-  try {
-    const response = await fetch("https://www.trackcorona.live/api/countries");
-    const data = await response.json();
-
-    const refineData = data.data.map((confirmedData) => ({
-      name: confirmedData.location,
-      confirmed: confirmedData.confirmed,
-      recovered: confirmedData.recovered,
-      deaths: confirmedData.dead,
-    }));
-
-    return refineData;
-  } catch (error) {
-    console.log(error);
-  }
-};
+const url ="https://covid19.mathdro.id/api";
+export const fetchDailyData = async () => {
+    try {
+      const { data } = await axios.get(`${url}/daily`);
+  
+      return data.map(({ confirmed, deaths, reportDate: date }) => ({
+        confirmed: confirmed.total,
+        deaths: deaths.total,
+        date,
+      }));
+    } catch (error) {
+      return error;
+    }
+  };
