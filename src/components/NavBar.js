@@ -67,7 +67,7 @@ export default function NavBar() {
     useEffect(() => {
      async function getdata(){
 
-  const response = awaite fetch("https://api.thevirustracker.com/free-api?global=stats")
+  const response = await fetch("https://api.thevirustracker.com/free-api?global=stats")
 
      }   
      
