@@ -38,13 +38,13 @@ export default function InfoPanel() {
       <Grid container spacing={3}>
       {Object.keys(globalData).map((key,ind)=>{ // always give unique key for dynamic content
           //if you want array of all day use .key and for each and map use as same to fecth all the data in to website view
-
+        // these headings are fetching from api if you want to change it use .replace function .upper case replace(/_/g,' ')this means underscore will replace by space
         return(
             <Grid item xs={12} sm={4} key={ind}>
             <Paper 
             className={classes.paper}  // becasue global["active casses"] thats why we extract all the  keys with global data
             elevation={4}
-            ><h3>{key}</h3>
+            ><h3>{key.replace(/_/g,' ')}</h3>
             <h3>{globalData[key]}</h3>
             </Paper>
           </Grid>
