@@ -42,7 +42,7 @@ export default function InfoPanel() {
         return(
             <Grid item xs={12} sm={4} key={ind}>
             <Paper 
-            className={classes.paper} 
+            className={classes.paper}  // becasue global["active casses"] thats why we extract all the  keys with global data
             elevation={4}
             ><h3>{key}</h3>
             <h3>{globalData[key]}</h3>
