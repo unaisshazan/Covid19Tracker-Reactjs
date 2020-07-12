@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+
     maxWidth:1000,
     margin:'0 auto',
     marginTop: '2%'
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     color:'rgb(0, 154, 255)',
   },
   list: {
-      color: 'rgb(27, 79, 114)',
+      color: 'rgb(27, 79, 114)', // text transform also work for uppercase
   }
 }));
 
