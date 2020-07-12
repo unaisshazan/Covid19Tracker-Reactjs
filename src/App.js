@@ -6,11 +6,11 @@ import FootNav from './components/FootNav'
 
 
 function App() {
-  const [CurrentScreen, setScreen] = React.useState('recents');
+  const screenConfig = useState(0);
   return (
     <div >
     <NavBar/>
-    <InfoPanel/>
+    <InfoPanel screenConfig={screenConfig}/>
     <FootNav/>
     </div>
   );
