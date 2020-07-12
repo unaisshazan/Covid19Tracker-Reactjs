@@ -40,7 +40,7 @@ export default function InfoPanel() {
           //if you want array of all day use .key and for each and map use as same to fecth all the data in to website view
 
         return(
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} key={ind}>
             <Paper 
             className={classes.paper} 
             elevation={4}
