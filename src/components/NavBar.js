@@ -64,6 +64,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function NavBar() {
+    useEffect(() => {
+     async function getdata(){
+
+  const response = awaite fetch("https://api.thevirustracker.com/free-api?global=stats")
+
+     }   
+     
+    }, [])
   const classes = useStyles();
 
   return (
