@@ -9,7 +9,11 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    position: 'absolute',
+    bottom:0,
+    right:0,
+    left:0,
+
   },
 });
 
@@ -23,10 +27,10 @@ export default function FootNav() {
 
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-      <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+      <BottomNavigationAction label="Global Stats" value="recents" icon={<RestoreIcon />} />
+      <BottomNavigationAction label="Country Stats" value="favorites" icon={<FavoriteIcon />} />
+      <BottomNavigationAction label="Graphs" value="nearby" icon={<LocationOnIcon />} />
+      <BottomNavigationAction label="Contact" value="folder" icon={<FolderIcon />} />
     </BottomNavigation>
   );
 }
