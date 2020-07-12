@@ -1,4 +1,4 @@
-import {React,useEffect,useState} from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
@@ -63,33 +63,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar() {
-    const classes = useStyles();
-    const [globalData, setGlobalData]= useState({});
-    useEffect(() => {
-     async function getdata(){
-
-  const response = await fetch("https://api.thevirustracker.com/free-api?global=stats");
-   let data = await response.json(); //converting all the data into json so u can use it in website
-
-   delete data.results[0].source; // data me source wali link ko remove krdo because source link is not usable
-   setGlobalData(data.results[0]);
-   console.log(data.results[0]);
-     }   
-     getdata();
-     
-    }, [])
-
+export default function SearchAppBar() {
+    
+  const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
         
-      
-   
           <Typography className={classes.title} variant="h6" noWrap>
-            Covid19 Tracker
+           Covid-19 Tracker
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
