@@ -10,12 +10,15 @@ const useStyles = makeStyles((theme) => ({
 
     maxWidth:1000,
     margin:'0 auto',
-    marginTop: '2%'
+    marginTop: '2%',
+
+
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+ 
   },
   title: {
 
@@ -28,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GlobalStats() {
     const [globalData, setGlobalData] = useState({});
-    
+
 
     useEffect(() => {
         async function getData() {
