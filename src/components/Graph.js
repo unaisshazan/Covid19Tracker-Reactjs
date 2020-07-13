@@ -44,9 +44,10 @@ const Chart = () =>{
     
         
     return(
-        <div className={styles.container}>
+       <center> <div className={styles.container} >
             {LineChart}
         </div>
+        </center>
 
     )
 }
