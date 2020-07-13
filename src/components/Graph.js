@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Line } from 'react-chartjs-2';
-import { fetchDailyData } from '../api/index.js'
+import { fetchDailyData } from '../api/api'
 import styles from './Chart.css';
 const Chart = () =>{
     
