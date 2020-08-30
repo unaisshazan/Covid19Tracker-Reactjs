@@ -15,7 +15,7 @@ You will also see any lint error in the console.
 
 
 
-Launches the test runners in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.<br />
 See the section abot [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
