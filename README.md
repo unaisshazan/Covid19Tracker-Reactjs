@@ -1,5 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-<h1> Watch Live</h1>
+<h1> Watch Live </h1>
 http://covid-19-tracker-2020.surge.sh/
 ## Available Scripts...
 
